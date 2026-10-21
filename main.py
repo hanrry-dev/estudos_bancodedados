@@ -15,14 +15,15 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS contas_bancarias (
 #  ('Ravel', 800, '13244678900')''') 
 
 
-cursor.execute("""SELECT * FROM contas_bancarias""")
+cursor.execute("""SELECT titular, saldo FROM contas_bancarias
+WHERE id = 1""")
 contas = cursor.fetchall()
 
 
 for conta in contas:
-   id, titular, saldo, cpf = conta
+   titular, saldo = conta
 
-   print(f"""id {id}
+   print(f"""
 titular: {titular}
 saldo: {saldo}
 """)
